@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EventoFácil - Gerenciamento de eventos acadêmicos"
+    >
+
+    <title>EventoFácil | Eventos Acadêmicos</title>
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         FUNDO ANIMADO
+    ========================================================== -->
+
+    <div class="background-effects">
+        <div class="background-orb orb-1"></div>
+        <div class="background-orb orb-2"></div>
+        <div class="background-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+
+    <!-- =========================================================
+         TOAST / NOTIFICAÇÕES
+    ========================================================== -->
+
+    <div id="toastContainer" class="toast-container"></div>
+
+
+    <!-- =========================================================
+         AUTENTICAÇÃO
+    ========================================================== -->
+
+    <section id="authScreen" class="screen auth-screen">
+
+        <div class="auth-image">
+
+            <div class="auth-image-overlay"></div>
+
+            <div class="auth-image-content">
+
+                <span class="eyebrow">
+                    EVENTOFÁCIL
+                </span>
+
+                <h1>
+                    Seu próximo
+                    <span>evento</span>
+                    começa aqui.
+                </h1>
+
+                <p>
+                    Descubra experiências acadêmicas,
+                    conecte-se com novas ideias e participe
+                    dos eventos que fazem parte da sua jornada.
+                </p>
+
+                <div class="auth-decoration">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-panel">
+
+            <!-- ESCOLHA ENTRAR / CADASTRAR -->
+
+            <div id="authChoice" class="auth-view active">
+
+                <div class="brand-small">
+                    <div class="brand-mark">EF</div>
+
+                    <span>
+                        EVENTO<span>FÁCIL</span>
+                    </span>
+                </div>
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        BEM-VINDO
+                    </span>
+
+                    <h2>
+                        Eventos que
+                        <span>movem você.</span>
+                    </h2>
+
+                    <p>
+                        Entre na sua conta ou crie um novo
+                        perfil para começar.
+                    </p>
+
+                </div>
+
+                <div class="auth-actions">
+
+                    <button
+                        class="btn btn-primary btn-large"
+                        id="goLogin"
+                    >
+                        Entrar
+                        <span>→</span>
+                    </button>
+
+                    <button
+                        class="btn btn-outline btn-large"
+                        id="goRegister"
+                    >
+                        Criar minha conta
+                        <span>+</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <div id="loginView" class="auth-view">
+
+                <button class="back-button" data-back-auth>
+                    ← Voltar
+                </button>
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        ACESSAR CONTA
+                    </span>
+
+                    <h2>
+                        Bem-vindo
+                        <span>de volta.</span>
+                    </h2>
+
+                    <p>
+                        Entre com seu e-mail e senha.
+                    </p>
+
+                </div>
+
+                <form id="loginForm" class="form">
+
+                    <div class="field">
+
+                        <label for="loginEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="seu@email.com"
+                            autocomplete="email"
+                        >
+
+                        <small
+                            id="loginEmailError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="loginPassword">
+                            Senha
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-toggle-password="loginPassword"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="loginPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="forgot-password">
+                        <button
+                            type="button"
+                            id="goForgot"
+                        >
+                            Esqueci minha senha
+                        </button>
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Entrar
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- CADASTRO -->
+
+            <div id="registerView" class="auth-view">
+
+                <button class="back-button" data-back-auth>
+                    ← Voltar
+                </button>
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        NOVA CONTA
+                    </span>
+
+                    <h2>
+                        Faça parte do
+                        <span>EventoFácil.</span>
+                    </h2>
+
+                    <p>
+                        Crie seu perfil para participar dos eventos.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm" class="form">
+
+                    <div class="field">
+
+                        <label for="registerName">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Digite seu nome completo"
+                            autocomplete="name"
+                        >
+
+                        <small
+                            id="registerNameError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="registerEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="seu@email.com"
+                            autocomplete="email"
+                        >
+
+                        <small
+                            id="registerEmailError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="registerPassword">
+                            Senha
+                        </label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Crie uma senha"
+                                autocomplete="new-password"
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-toggle-password="registerPassword"
+                            >
+                                ◉
+                            </button>
+
+                        </div>
+
+                        <small
+                            id="registerPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="registerPasswordConfirm">
+                            Confirmar senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPasswordConfirm"
+                            placeholder="Digite a senha novamente"
+                            autocomplete="new-password"
+                        >
+
+                        <small
+                            id="registerPasswordConfirmError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Criar conta
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- RECUPERAÇÃO - EMAIL -->
+
+            <div id="forgotEmailView" class="auth-view">
+
+                <button class="back-button" data-back-login>
+                    ← Voltar
+                </button>
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        RECUPERAÇÃO
+                    </span>
+
+                    <h2>
+                        Recuperar
+                        <span>acesso.</span>
+                    </h2>
+
+                    <p>
+                        Informe o e-mail da sua conta.
+                    </p>
+
+                </div>
+
+
+                <form id="forgotEmailForm" class="form">
+
+                    <div class="field">
+
+                        <label for="forgotEmail">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="forgotEmail"
+                            placeholder="seu@email.com"
+                        >
+
+                        <small
+                            id="forgotEmailError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Enviar código
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- RECUPERAÇÃO - CÓDIGO -->
+
+            <div id="forgotCodeView" class="auth-view">
+
+                <button
+                    class="back-button"
+                    id="backForgotEmail"
+                >
+                    ← Voltar
+                </button>
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        VERIFICAÇÃO
+                    </span>
+
+                    <h2>
+                        Confirme seu
+                        <span>e-mail.</span>
+                    </h2>
+
+                    <p>
+                        Digite o código de 6 dígitos enviado
+                        para seu e-mail.
+                    </p>
+
+                </div>
+
+
+                <form id="forgotCodeForm" class="form">
+
+                    <div class="code-inputs">
+
+                        <input maxlength="1" inputmode="numeric">
+                        <input maxlength="1" inputmode="numeric">
+                        <input maxlength="1" inputmode="numeric">
+                        <input maxlength="1" inputmode="numeric">
+                        <input maxlength="1" inputmode="numeric">
+                        <input maxlength="1" inputmode="numeric">
+
+                    </div>
+
+                    <div
+                        id="codeTimer"
+                        class="code-timer"
+                    >
+                        Código válido por 05:00
+                    </div>
+
+                    <small
+                        id="forgotCodeError"
+                        class="field-error center"
+                    ></small>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Confirmar código
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- NOVA SENHA -->
+
+            <div id="resetPasswordView" class="auth-view">
+
+                <div class="auth-heading">
+
+                    <span class="section-label">
+                        NOVA SENHA
+                    </span>
+
+                    <h2>
+                        Crie uma nova
+                        <span>senha.</span>
+                    </h2>
+
+                    <p>
+                        Escolha uma senha segura para sua conta.
+                    </p>
+
+                </div>
+
+
+                <form id="resetPasswordForm" class="form">
+
+                    <div class="field">
+
+                        <label for="newPassword">
+                            Nova senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Digite a nova senha"
+                        >
+
+                        <small
+                            id="newPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="newPasswordConfirm">
+                            Confirmar nova senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPasswordConfirm"
+                            placeholder="Digite novamente"
+                        >
+
+                        <small
+                            id="newPasswordConfirmError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Salvar nova senha
+                        <span>✓</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SITE PRINCIPAL
+    ========================================================== -->
+
+    <section id="mainScreen" class="screen main-screen hidden">
+
+        <!-- HEADER -->
+
+        <header class="main-header">
+
+            <a href="#" class="brand">
+
+                <div class="brand-mark">
+                    EF
+                </div>
+
+                <div class="brand-name">
+                    EVENTO<span>FÁCIL</span>
+                </div>
+
+            </a>
+
+
+            <nav class="main-nav">
+
+                <a
+                    href="#home"
+                    class="nav-link active"
+                    data-section="home"
+                >
+                    Início
+                </a>
+
+                <a
+                    href="#events"
+                    class="nav-link"
+                    data-section="events"
+                >
+                    Próximos eventos
+                </a>
+
+                <a
+                    href="#registrations"
+                    class="nav-link"
+                    data-section="registrations"
+                >
+                    Minhas inscrições
+                </a>
+
+                <a
+                    href="#assistant"
+                    class="nav-link"
+                    data-section="assistant"
+                >
+                    Assistente IA
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="profileButton"
+                    class="profile-button"
+                    title="Meu perfil"
+                >
+
+                    <span id="profileInitials">
+                        GU
+                    </span>
+
+                    <span class="profile-button-text">
+                        Meu perfil
+                    </span>
+
+                </button>
+
+
+                <button
+                    id="logoutButton"
+                    class="logout-button"
+                    title="Sair"
+                >
+                    ↗
+                </button>
+
+            </div>
+
+
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+            >
+                ☰
+            </button>
+
+        </header>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <main>
+
+            <section
+                id="home"
+                class="hero-section page-section"
+            >
+
+                <div class="hero-content">
+
+                    <span class="section-label hero-label">
+                        EVENTOS ACADÊMICOS
+                    </span>
+
+                    <h1>
+                        O conhecimento
+                        <br>
+                        <span>em movimento.</span>
+                    </h1>
+
+                    <p>
+                        Encontre palestras, workshops,
+                        experiências e oportunidades
+                        para transformar sua jornada acadêmica.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <button
+                            class="btn btn-primary"
+                            data-scroll-events
+                        >
+                            Explorar eventos
+                            <span>→</span>
+                        </button>
+
+                        <button
+                            class="text-button"
+                            data-section-link="registrations"
+                        >
+                            Minhas inscrições
+                            <span>↗</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="hero-image-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85"
+                            alt="Evento acadêmico"
+                        >
+
+                        <div class="hero-image-gradient"></div>
+
+                        <div class="hero-floating-card">
+
+                            <span>
+                                PRÓXIMO EVENTO
+                            </span>
+
+                            <strong>
+                                IA Generativa
+                            </strong>
+
+                            <small>
+                                30 SET · 19:00
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-ring ring-1"></div>
+                    <div class="hero-ring ring-2"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EVENTOS
+            ================================================== -->
+
+            <section
+                id="events"
+                class="events-section page-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            AGENDA
+                        </span>
+
+                        <h2>
+                            Próximos
+                            <span>eventos.</span>
+                        </h2>
+
+                    </div>
+
+                    <div class="event-search">
+
+                        <span>⌕</span>
+
+                        <input
+                            id="eventSearch"
+                            type="search"
+                            placeholder="Buscar evento..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- CATEGORIAS FICAM AQUI.
+                     NÃO EXISTE UMA SEÇÃO SEPARADA DE CATEGORIAS. -->
+
+                <div
+                    id="categoryFilters"
+                    class="category-filters"
+                >
+
+                    <button
+                        class="category-filter active"
+                        data-category="Todos"
+                    >
+                        Todos
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        data-category="Tecnologia"
+                    >
+                        Tecnologia
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        data-category="Carreira"
+                    >
+                        Carreira
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        data-category="Acadêmico"
+                    >
+                        Acadêmico
+                    </button>
+
+                    <button
+                        class="category-filter"
+                        data-category="Criatividade"
+                    >
+                        Criatividade
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="eventsGrid"
+                    class="events-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 IA
+            ================================================== -->
+
+            <section
+                id="assistant"
+                class="assistant-section page-section"
+            >
+
+                <div class="assistant-container">
+
+                    <div class="assistant-decoration">
+                        <div class="assistant-circle"></div>
+                        <div class="assistant-circle"></div>
+                        <div class="assistant-core">
+                            EF
+                        </div>
+                    </div>
+
+
+                    <div class="assistant-content">
+
+                        <span class="section-label">
+                            INTELIGÊNCIA ARTIFICIAL
+                        </span>
+
+                        <h2>
+                            Seu assistente
+                            <span>acadêmico.</span>
+                        </h2>
+
+                        <p>
+                            Encontre eventos, descubra oportunidades
+                            e tire suas dúvidas através do assistente
+                            inteligente do EventoFácil.
+                        </p>
+
+                        <!--
+                            ESPAÇO RESERVADO PARA A IA.
+                            A implementação será feita posteriormente.
+                        -->
+
+                        <button
+                            class="btn btn-primary"
+                            id="openAssistant"
+                        >
+                            Abrir assistente
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 INSCRIÇÕES
+            ================================================== -->
+
+            <section
+                id="registrations"
+                class="registrations-section page-section"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            SUA AGENDA
+                        </span>
+
+                        <h2>
+                            Minhas
+                            <span>inscrições.</span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="registrationsList"
+                    class="registrations-list"
+                ></div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <footer class="main-footer">
+
+            <div class="footer-brand">
+
+                <div class="brand-mark">
+                    EF
+                </div>
+
+                <div>
+                    <strong>
+                        EVENTO<span>FÁCIL</span>
+                    </strong>
+
+                    <small>
+                        Conectando você ao próximo evento.
+                    </small>
+                </div>
+
+            </div>
+
+            <div class="footer-line"></div>
+
+            <span>
+                © 2026 EventoFácil
+            </span>
+
+        </footer>
+
+    </section>
+
+
+    <!-- =========================================================
+         MODAL DE EVENTO
+    ========================================================== -->
+
+    <div
+        id="eventModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal event-modal">
+
+            <button
+                class="modal-close"
+                data-close-modal
+            >
+                ×
+            </button>
+
+            <div
+                id="modalEventImage"
+                class="modal-event-image"
+            ></div>
+
+            <div class="modal-content">
+
+                <span
+                    id="modalEventCategory"
+                    class="event-category"
+                >
+                    Tecnologia
+                </span>
+
+                <h2 id="modalEventTitle">
+                    Evento
+                </h2>
+
+                <p id="modalEventDescription">
+                    Descrição.
+                </p>
+
+                <div
+                    id="modalEventInfo"
+                    class="modal-event-info"
+                ></div>
+
+                <button
+                    id="modalRegisterButton"
+                    class="btn btn-primary btn-large"
+                >
+                    Inscrever-se
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL DE PERFIL
+    ========================================================== -->
+
+    <div
+        id="profileModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal profile-modal">
+
+            <button
+                class="modal-close"
+                id="profileCloseButton"
+            >
+                ×
+            </button>
+
+
+            <div class="profile-header">
+
+                <div
+                    id="profileLargeInitials"
+                    class="profile-avatar"
+                >
+                    GU
+                </div>
+
+                <div>
+
+                    <span class="section-label">
+                        MINHA CONTA
+                    </span>
+
+                    <h2>
+                        Meu perfil
+                    </h2>
+
+                    <p>
+                        Gerencie suas informações pessoais.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-fields">
+
+                <!-- NOME -->
+
+                <div class="profile-field">
+
+                    <div class="profile-field-info">
+
+                        <span>
+                            Nome completo
+                        </span>
+
+                        <strong id="profileName">
+                            Guilherme Costa Soares
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="profile-edit-button"
+                        data-edit-profile="name"
+                    >
+                        Alterar
+                    </button>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="profile-field">
+
+                    <div class="profile-field-info">
+
+                        <span>
+                            E-mail
+                        </span>
+
+                        <strong id="profileEmail">
+                            exemplo@email.com
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="profile-edit-button"
+                        data-edit-profile="email"
+                    >
+                        Alterar
+                    </button>
+
+                </div>
+
+
+                <!-- SENHA -->
+
+                <div class="profile-field">
+
+                    <div class="profile-field-info">
+
+                        <span>
+                            Senha
+                        </span>
+
+                        <strong>
+                            ••••••••••••
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="profile-edit-button"
+                        data-edit-profile="password"
+                    >
+                        Alterar
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-save-area">
+
+                <button
+                    id="saveProfileChanges"
+                    class="btn btn-primary btn-large"
+                >
+                    Salvar alterações
+                    <span>✓</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         MODAL DE ALTERAÇÃO DE PERFIL
+    ========================================================== -->
+
+    <div
+        id="editProfileModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal edit-profile-modal">
+
+            <button
+                class="modal-close"
+                id="editProfileClose"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-content">
+
+                <span class="section-label">
+                    SEGURANÇA
+                </span>
+
+                <h2 id="editProfileTitle">
+                    Alterar informação
+                </h2>
+
+                <p>
+                    Por segurança, confirme novamente
+                    sua senha atual.
+                </p>
+
+
+                <form id="editProfileForm" class="form">
+
+                    <div
+                        id="currentPasswordField"
+                        class="field"
+                    >
+
+                        <label for="currentPassword">
+                            Senha atual
+                        </label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Digite sua senha atual"
+                        >
+
+                        <small
+                            id="currentPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div
+                        id="newProfileValueField"
+                        class="field"
+                    >
+
+                        <label id="newProfileValueLabel">
+                            Novo valor
+                        </label>
+
+                        <input
+                            id="newProfileValue"
+                            type="text"
+                            placeholder="Digite o novo valor"
+                        >
+
+                        <small
+                            id="newProfileValueError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <div
+                        id="confirmNewPasswordField"
+                        class="field hidden"
+                    >
+
+                        <label for="confirmNewPassword">
+                            Confirmar nova senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmNewPassword"
+                            placeholder="Digite novamente"
+                        >
+
+                        <small
+                            id="confirmNewPasswordError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Confirmar alteração
+                        <span>✓</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CONFIRMAÇÃO AO SAIR SEM SALVAR
+    ========================================================== -->
+
+    <div
+        id="unsavedModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal confirmation-modal">
+
+            <div class="confirmation-icon">
+                !
+            </div>
+
+            <span class="section-label">
+                ALTERAÇÕES NÃO SALVAS
+            </span>
+
+            <h2>
+                Sair sem salvar?
+            </h2>
+
+            <p>
+                As alterações feitas no perfil serão perdidas.
+                Deseja realmente sair?
+            </p>
+
+            <div class="confirmation-actions">
+
+                <button
+                    id="stayEditing"
+                    class="btn btn-outline"
+                >
+                    Não, continuar
+                </button>
+
+                <button
+                    id="discardChanges"
+                    class="btn btn-danger"
+                >
+                    Sim, sair
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         LOGIN PARA ALTERAR PERFIL
+    ========================================================== -->
+
+    <div
+        id="reauthModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal reauth-modal">
+
+            <button
+                class="modal-close"
+                data-close-reauth
+            >
+                ×
+            </button>
+
+            <div class="modal-content">
+
+                <span class="section-label">
+                    AUTENTICAÇÃO
+                </span>
+
+                <h2>
+                    Confirme sua
+                    <span>identidade.</span>
+                </h2>
+
+                <p>
+                    Para alterar seus dados, faça login novamente.
+                </p>
+
+
+                <form id="reauthForm" class="form">
+
+                    <div class="field">
+
+                        <label>
+                            E-mail
+                        </label>
+
+                        <input
+                            id="reauthEmail"
+                            type="email"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label for="reauthPassword">
+                            Senha
+                        </label>
+
+                        <input
+                            id="reauthPassword"
+                            type="password"
+                            placeholder="Digite sua senha"
+                        >
+
+                        <small
+                            id="reauthError"
+                            class="field-error"
+                        ></small>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-large"
+                    >
+                        Confirmar identidade
+                        <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         CHAT / IA PLACEHOLDER
+    ========================================================== -->
+
+    <div
+        id="assistantModal"
+        class="modal-overlay hidden"
+    >
+
+        <div class="modal assistant-modal">
+
+            <button
+                class="modal-close"
+                data-close-assistant
+            >
+                ×
+            </button>
+
+            <div class="assistant-placeholder">
+
+                <div class="assistant-placeholder-icon">
+                    EF
+                </div>
+
+                <span class="section-label">
+                    ASSISTENTE IA
+                </span>
+
+                <h2>
+                    Espaço reservado
+                    <span>para a IA.</span>
+                </h2>
+
+                <p>
+                    A interface está preparada para receber
+                    o assistente inteligente futuramente.
+                </p>
+
+                <div class="ai-status">
+                    <span></span>
+                    Sistema preparado para integração
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
